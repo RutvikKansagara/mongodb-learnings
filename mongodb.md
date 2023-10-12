@@ -14,7 +14,7 @@
 - ### Collections and Documents:
 
     - MongoDB organizes data into collections, which are groups of related documents. Each document in a collection is a record, and collections are roughly equivalent to tables in relational databases.
-- Schema-less:
+- ### Schema-less:
 
    - Unlike traditional relational databases, MongoDB is schema-less, meaning that documents in a   collection can have different fields, and new fields can be added to documents without         affecting the entire collection.
      
