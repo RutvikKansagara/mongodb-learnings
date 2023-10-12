@@ -76,7 +76,7 @@ db.students.find({})
 
 ##### output:
 
-```json
+```
 {
   _id: ObjectId("65279dff2ed013ed0432426a"),
   name: 'John Doe',
@@ -89,7 +89,7 @@ db.students.find({})
 }
 {
   _id: ObjectId("6527a4c72ed013ed0432426b"),
-  name: 'John Doe',
+  name: 'Jane Doe',
   age: 21,
   branch: 'Computer Science',
   course: 'Computer Science',
@@ -107,4 +107,91 @@ db.students.find({})
   paid: false,
   amount: 0
 }
+```
+
+### UPDATE Operations:
+
+| Method                    | Description                                               |
+| -----------               | -----------                                               |
+| db.collection.updateOne()	| It is used to update a single document in                 |
+|                           |   the collection that satisfy the given criteria.           |
+| db.collection.updateMany()| It is used to update multiple documents in the            |
+|                           |    collection that satisfy the given criteria.             |
+| db.collection.replaceOne()| It is used to replace single document in the              |
+|                           |   collection that satisfy the given criteria.              |
+
+#### Updating sinlge document using db.collection.updateOne():
+
+```
+db.students.updateOne(
+  { name: "John Doe" },
+  {
+    $set: {
+      age: 22,
+      mode: "offline",
+      amount: 600.00
+    }
+  }
+);
+```
+
+#### Updating multiple document using db.collection.updateMany():
+
+```
+db.students.updateMany(
+  { branch: "Computer Science" },
+  {
+    $set: {
+      mode: "online",
+      amount: 550.00
+    }
+  }
+);
+```
+
+
+#### Updating sinlge document using db.collection.replaceOne():
+
+```
+db.students.replaceOne(
+  { name: "John Doe" },
+  {
+    name: "John Doe",
+    age: 23,
+    branch: "Computer Science",
+    course: "Advanced Computer Science",
+    mode: "online",
+    paid: true,
+    amount: 650.00
+  }
+);
+```
+
+
+### DELETE Operations:
+
+| Method                    | Description                                               |
+| -----------               | -----------                                               |
+|db.collection.deleteOne()	| It is used to delete a single document from the|
+|                            |  collection that satisfy the given criteria. |
+|db.collection.deleteMany() | It is used to delete multiple documents from the 
+|                            | collection that satisfy the given criteria.|
+
+
+#### deleting a sinlge document using db.collection.deleteOne():
+
+
+```
+db.students.deleteOne(
+  { name: "John Doe" }
+);
+```
+
+#### deleting a multiple document using db.collection.deleteMany():
+
+
+```
+db.students.deleteMany(
+  { branch: "Computer Science" }
+);
 ```
